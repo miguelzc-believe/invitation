@@ -40,3 +40,67 @@ a {
     color-scheme: dark;
   }
 }
+
+@keyframes volar {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  25% {
+    transform: translateX(-40%) translateY(-20px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  75% {
+    transform: translateX(-60%) translateY(20px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes latir{
+0% {
+    transform: translateY(0) scale(1);
+  }
+
+  25% {
+    transform: translateY(-8px) scale(1.1);
+  }
+
+  50% {
+    transform: translateY(0) scale(1);
+  }
+
+  75% {
+    transform: translateY(4px) scale(0.9);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cslatir {
+    position: relative;
+      z-index: 100;
+      /* Ajusta el valor según sea necesario */
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 80%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+     
+      animation: latir 1.5s ease-in-out infinite;
+      border: none;
+      /* Quita el borde predeterminado del botón */
+      background: transparent;
+      /* Hace el botón transparente */
+      cursor: pointer;
+      /* Cambia el cursor a mano al pasar por encima */
+}
