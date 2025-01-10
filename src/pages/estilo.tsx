@@ -20,7 +20,7 @@ const bounceAnimation = keyframes`
 
 const BouncingButton = styled.button`
   position: relative;
-  z-index: 2; /* Ajusta el valor según sea necesario */
+  z-index: 6; /* Ajusta el valor según sea necesario */
   display: flex;
   justify-content: center;
   align-items: center;

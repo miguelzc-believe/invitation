@@ -43,7 +43,7 @@ const EnvelopePage = () => {
         sx={{
           position: "relative",
           width: "100%", // Asegúrate de que el contenedor padre tenga suficiente ancho
-          maxWidth: isOpen ? "100%" : "500px",
+          maxWidth: "500px",
           height: "100vh",
           backgroundColor: "#8b4513", // Color café oscuro          border: "2px solid #8b5e3c",
           backgroundImage: "url('textura.png')", // Textura vintage
@@ -53,6 +53,7 @@ const EnvelopePage = () => {
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
           transformOrigin: "left",
           transition: "transform 1.5s",
+          justifyContent: "center",
         }}
       >
         {/* Tapa del sobre */}
@@ -74,88 +75,69 @@ const EnvelopePage = () => {
             zIndex: 2, // Asigna un z-index a la tapa
           }}
         />
-
         {/* Contenido interno */}
         <Box
           sx={{
             position: "absolute",
-            top: 0,
-            left: 0,
+
             width: "100%",
             height: "100%",
-            backgroundImage: `url('/imagena.png')`,
+            maxWidth: "500px",
+            pX: "auto",
+            zIndex: 4,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "opacity 0.5s",
+            transition: "opacity 1s",
             opacity: isOpen ? 1 : 0,
             backfaceVisibility: "hidden",
+            animation: "myAnimation s infinite",
           }}
         >
-          <AnimatedBackground isOpen={true} />
-          <Box
-            sx={{
-              position: "absolute",
-              top: "70px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              fontFamily: "Elephant",
-              fontSize: "40px",
-              fontWeight: "bold",
-              color: "#593E2F",
-              textTransform: "uppercase",
-            }}
-          >
-            PASAPORTE
-          </Box>
-
-          <Box
-            sx={{
-              position: "absolute",
-              top: "180px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              fontFamily: "Monotype Corsiva",
-              fontSize: "30px",
-              fontStyle: "italic",
-              color: "#593E2F",
-            }}
-          >
-            A nuestra boda
-          </Box>
-          <img
-            src="centro.png" // Reemplaza con la ruta correcta
-            alt="Imagen debajo del texto"
+          <video
+            autoPlay
+            loop
+            muted
             style={{
               position: "absolute",
-              top: "270px", // Ajusta la posición vertical según sea necesario
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "200px", // Ajusta el tamaño de la imagen
-              height: "200px",
-            }}
-          />
-          <Box
-            sx={{
-              position: "absolute",
-              top: "490px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              fontFamily: "Monotype Corsiva",
-              fontSize: "30px",
-              fontStyle: "italic",
-              color: "#593E2F",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              zIndex: -1,
             }}
           >
-            Únete al viaje
-          </Box>
+            <source src="contenido.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {isOpen && (
+            <>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleClose}
+                sx={{ top: 0, position: "absolute" }}
+              >
+                Cerrar Sobre
+              </Button>
+              <a
+                href="/card"
+                color="primary"
+                style={{ bottom: 0, position: "absolute" }}
+              >
+                siguiente
+              </a>
+            </>
+          )}
         </Box>
+
         {/* Sello central */}
 
         {!isOpen && (
-          <BouncingButton onClick={handleOpen}>
+          <button className="cslatir" onClick={handleOpen}>
             <img
               src="logo.png" // Replace with the actual path to your image
               alt="Button Image"
@@ -164,17 +146,7 @@ const EnvelopePage = () => {
                 height: "300px",
               }}
             />
-          </BouncingButton>
-        )}
-        {isOpen && (
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleClose}
-            sx={{ marginTop: "20px" }}
-          >
-            Cerrar Sobre
-          </Button>
+          </button>
         )}
       </Box>
     </Box>
