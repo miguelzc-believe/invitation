@@ -72,7 +72,7 @@ const CardPage = () => {
             color="white"
             sx={{ fontFamily: "Arial Black" }}
           >
-            PASE DE ABORDAR
+            {"< < < < <   PASE DE ABORDAR   > > > > >"}
           </Typography>
         </Box>
         <Box
@@ -126,6 +126,7 @@ const CardPage = () => {
               width={"120px"}
               height={"20px"}
               style={{ marginRight: "-20px" }}
+              className="csSlideRight"
             />
           </Box>
 
@@ -192,7 +193,12 @@ const CardPage = () => {
           </Typography>
           <Typography
             variant="body1"
-            sx={{ textAlign: "center", fontFamily: "Helvetica", width: "100%" }}
+            sx={{
+              textAlign: "center",
+              fontFamily: "Arial Black",
+              fontWeight: "bold",
+              width: "100%",
+            }}
           >
             VÁLIDO HASTA:
           </Typography>
@@ -215,10 +221,7 @@ const CardPage = () => {
               >
                 {days}
               </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: "bold", color: "#D8B29A" }}
-              >
+              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
                 DIAS
               </Typography>
             </Box>
@@ -243,10 +246,7 @@ const CardPage = () => {
               >
                 {hours}
               </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: "bold", color: "#D8B29A" }}
-              >
+              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
                 HRS
               </Typography>
             </Box>
@@ -271,10 +271,7 @@ const CardPage = () => {
               >
                 {minutes}
               </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: "bold", color: "#D8B29A" }}
-              >
+              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
                 MINS
               </Typography>
             </Box>
@@ -299,10 +296,7 @@ const CardPage = () => {
               >
                 {seconds}
               </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{ fontWeight: "bold", color: "#D8B29A" }}
-              >
+              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
                 SECS
               </Typography>
             </Box>
@@ -330,17 +324,14 @@ const CardPage = () => {
           >
             FIN
           </Typography>
-
-          <Box
-            id="codigodebarras"
-            sx={{
-              width: "200px",
-              height: "50px",
-              backgroundColor: "#fff",
-              border: "1px solid #000",
-              marginTop: "3px",
-            }}
-          ></Box>
+          <Image
+            id="codigo"
+            src="/codigo.png" // Reemplaza con la ruta correcta de tu imagen
+            alt="Código de barras"
+            width={200}
+            height={50}
+            layout="fixed"
+          />
         </Box>
         <Box
           id="pie"
@@ -355,7 +346,14 @@ const CardPage = () => {
             width: "100%",
           }}
         >
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "white",
+              color: "#593E2F",
+              fontFamily: "Imprint MT Shadow",
+            }}
+          >
             CONFIRMA ASISTENCIA
           </Button>
         </Box>
