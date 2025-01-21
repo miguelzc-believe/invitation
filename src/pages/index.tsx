@@ -45,8 +45,8 @@ const EnvelopePage = () => {
           width: "100%", // Asegúrate de que el contenedor padre tenga suficiente ancho
           maxWidth: "500px",
           height: "100vh",
-          backgroundColor: "#8b4513", // Color café oscuro          border: "2px solid #8b5e3c",
-          backgroundImage: "url('textura.png')", // Textura vintage
+          backgroundColor: "#F5F3E7", // Color café oscuro          border: "2px solid #8b5e3c",
+          backgroundImage: "url('fondo.png')", // Textura vintage
           backgroundSize: "cover",
           borderRadius: "5px",
           overflow: "hidden", // Si el contenido del sobre es más grande, asegúrate de que no se oculte
@@ -64,9 +64,10 @@ const EnvelopePage = () => {
             left: 0,
             width: "70%",
             height: "100%",
-            backgroundColor: "#8b4513", // Color café oscuro
-            backgroundImage: "url('textura.png')", // Textura vintage
-            filter: "brightness(80%)", // Ajusta este valor para oscurecer
+            backgroundColor: "#F5F3E7",
+
+            backgroundImage: "url('fondo.png')", // Textura vintage
+            filter: "brightness(94%)", // Ajusta este valor para oscurecer
             clipPath: "polygon(0 0, 100% 50%, 0 100%)",
             transformStyle: "preserve-3d",
             transform: isOpen ? "rotateY(-180deg)" : "rotateY(0)",
@@ -110,7 +111,7 @@ const EnvelopePage = () => {
               zIndex: -1,
             }}
           >
-            <source src="contenido.mp4" type="video/mp4" />
+            <source src="entrada.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {isOpen && (
@@ -139,7 +140,7 @@ const EnvelopePage = () => {
         {!isOpen && (
           <button className="cslatir" onClick={handleOpen}>
             <img
-              src="logo.png" // Replace with the actual path to your image
+              src="nuevo.png" // Replace with the actual path to your image
               alt="Button Image"
               style={{
                 width: "300px",

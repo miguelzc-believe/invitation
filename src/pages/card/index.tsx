@@ -2,12 +2,22 @@ import { Box, Typography, Button, Container } from "@mui/material";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+import * as QRCode from "qrcode.react";
+import QRButton from "./qr";
+import { px } from "framer-motion";
+
 const CardPage = () => {
   const eventDate = new Date("2025-03-22T00:00:00");
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+
+  const [showQR, setShowQR] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowQR(!showQR);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,8 +52,8 @@ const CardPage = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: "100vh",
-        backgroundImage: `url('imagena.png')`, // Reemplaza con la ruta de tu imagen
+        minHeight: "100vh",
+        backgroundImage: `url('continente.png')`, // Reemplaza con la ruta de tu imagen
         backgroundSize: "cover",
         backgroundPosition: "center",
         border: "1px solid BLUE",
@@ -64,15 +74,15 @@ const CardPage = () => {
       >
         <Box
           id="cabecera"
-          sx={{ backgroundColor: "#D8B29A", padding: "20px", width: "100%" }}
+          sx={{ backgroundColor: "#CAD1C4", padding: "20px", width: "100%" }}
         >
           <Typography
-            variant="h5"
+            fontSize="12px"
             align="center"
             color="white"
             sx={{ fontFamily: "Arial Black" }}
           >
-            {"< < < < <   PASE DE ABORDAR   > > > > >"}
+            {" BOARDING PASS|PASE ABORDO     "}
           </Typography>
         </Box>
         <Box
@@ -83,12 +93,12 @@ const CardPage = () => {
             width: "auto",
             borderRadius: "8px",
             boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-            padding: "43px",
+            padding: "50px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start", // Alinea elementos al inicio (arriba)
             justifyContent: "center",
-            paddingTop: "20px", // Agrega padding-top al contenedor
+            paddingTop: "10px", // Agrega padding-top al contenedor
           }}
         >
           <Typography
@@ -97,7 +107,9 @@ const CardPage = () => {
               fontFamily: "Arial Black",
               fontWeight: "bold",
               textTransform: "uppercase",
-              color: "#593E2F",
+              color: "#A36548",
+              display: "inline", // Asegura que el texto esté en la misma línea
+              marginLeft: "-10px", // Desplaza el texto hacia la izquierda
             }}
           >
             {airlineName}
@@ -114,7 +126,7 @@ const CardPage = () => {
               variant="h6"
               sx={{
                 fontFamily: "Abadi",
-                color: "#593E2F",
+                color: "#A36548",
                 marginLeft: "-20px", // Desplaza el texto hacia la izquierda
               }}
             >
@@ -129,15 +141,14 @@ const CardPage = () => {
               className="csSlideRight"
             />
           </Box>
-
           <Typography
             variant="body1"
             sx={{
               fontFamily: "HELVETICA",
               fontSize: "16px",
               letterSpacing: "2px",
-
               textTransform: "uppercase",
+              color: "#A36548",
             }}
           >
             CLASE:
@@ -149,11 +160,19 @@ const CardPage = () => {
               fontWeight: "bold",
               textAlign: "right",
               paddingLeft: "50px", // Ajusta el espacio a la izquierda
+              color: "#A9B0A3",
             }}
           >
             NUPCIAL
           </Typography>
-          <Typography variant="body1" sx={{ fontFamily: "Helvetica" }}>
+          <Typography
+            variant="body1"
+            sx={{
+              fontFamily: "Abadi",
+              color: "#A36548",
+              marginLeft: "-20px", // Desplaza el texto hacia la izquierda
+            }}
+          >
             ACCESO VIP:
           </Typography>
           <Typography
@@ -163,6 +182,7 @@ const CardPage = () => {
               fontWeight: "bold",
               textAlign: "center",
               // Ajusta el espacio a la izquierda
+              color: "#A9B0A3",
             }}
           >
             PARA VIVIR JUNTOS
@@ -174,11 +194,15 @@ const CardPage = () => {
               fontWeight: "bold",
               textAlign: "center",
               // Ajusta el espacio a la izquierda
+              color: "#A9B0A3",
             }}
           >
             ESTE MOMENTO INOLVIDABLE
           </Typography>
-          <Typography variant="body1" sx={{ fontFamily: "Helvetica" }}>
+          <Typography
+            variant="body1"
+            sx={{ fontFamily: "Helvetica", color: "#A36548" }}
+          >
             FECHA:
           </Typography>
           <Typography
@@ -187,6 +211,7 @@ const CardPage = () => {
               fontFamily: "'fira code','courier prime',monospace",
               fontWeight: "bold",
               paddingLeft: "20px", // Ajusta el espacio a la izquierda
+              color: "#A9B0A3",
             }}
           >
             22 MARZO 2025
@@ -198,6 +223,7 @@ const CardPage = () => {
               fontFamily: "Arial Black",
               fontWeight: "bold",
               width: "100%",
+              color: "#A36548",
             }}
           >
             VÁLIDO HASTA:
@@ -216,12 +242,18 @@ const CardPage = () => {
                 sx={{
                   fontFamily: "Franklin Gothic",
                   fontWeight: "bold",
-                  color: "#D8B29A",
+                  color: "#A9B0A3",
                 }}
               >
                 {days}
               </Typography>
-              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#A36548",
+                }}
+              >
                 DIAS
               </Typography>
             </Box>
@@ -230,7 +262,7 @@ const CardPage = () => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textAlign: "center",
-                color: "#D8B29A",
+                color: "#A9B0A3",
               }}
             >
               :
@@ -241,12 +273,18 @@ const CardPage = () => {
                 sx={{
                   fontFamily: "Franklin Gothic",
                   fontWeight: "bold",
-                  color: "#D8B29A",
+                  color: "#A9B0A3",
                 }}
               >
                 {hours}
               </Typography>
-              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#A36548",
+                }}
+              >
                 HRS
               </Typography>
             </Box>
@@ -255,7 +293,7 @@ const CardPage = () => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textAlign: "center",
-                color: "#D8B29A",
+                color: "#A9B0A3",
               }}
             >
               :
@@ -266,12 +304,18 @@ const CardPage = () => {
                 sx={{
                   fontFamily: "Franklin Gothic",
                   fontWeight: "bold",
-                  color: "#D8B29A",
+                  color: "#A9B0A3",
                 }}
               >
                 {minutes}
               </Typography>
-              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#A36548",
+                }}
+              >
                 MINS
               </Typography>
             </Box>
@@ -280,7 +324,7 @@ const CardPage = () => {
                 fontWeight: "bold",
                 fontSize: "20px",
                 textAlign: "center",
-                color: "#D8B29A",
+                color: "#A9B0A3",
               }}
             >
               :
@@ -291,17 +335,25 @@ const CardPage = () => {
                 sx={{
                   fontFamily: "Franklin Gothic",
                   fontWeight: "bold",
-                  color: "#D8B29A",
+                  color: "#A9B0A3", // Tono más oscuro
                 }}
               >
                 {seconds}
               </Typography>
-              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#A36548",
+                }}
+              >
                 SECS
               </Typography>
             </Box>
           </Box>
-          <Typography variant="body1">DESTINO:</Typography>
+          <Typography variant="body1" sx={{ color: "#A36548" }}>
+            DESTINO:
+          </Typography>
           <Typography
             variant="h6"
             sx={{
@@ -309,6 +361,7 @@ const CardPage = () => {
               fontWeight: "bold",
               textAlign: "center",
               width: "100%",
+              color: "#A9B0A3",
             }}
           >
             JUNTOS HASTA EL
@@ -320,6 +373,7 @@ const CardPage = () => {
               fontWeight: "bold",
               textAlign: "center",
               width: "100%",
+              color: "#A9B0A3",
             }}
           >
             FIN
@@ -329,8 +383,13 @@ const CardPage = () => {
             src="/codigo.png" // Reemplaza con la ruta correcta de tu imagen
             alt="Código de barras"
             width={200}
-            height={50}
+            height={70}
             layout="fixed"
+            style={{
+              marginTop: "-10px",
+              marginLeft: "-5px",
+              marginRight: "auto",
+            }} // Ajusta el margen superior para subir la imagen y centrarla horizontalmente
           />
         </Box>
         <Box
@@ -338,7 +397,7 @@ const CardPage = () => {
           display={"flex"}
           alignItems={"center"}
           sx={{
-            backgroundColor: "#D8B29A",
+            backgroundColor: "#CAD1C4",
             justifyContent: "center",
             padding: "10px",
             position: "absolute",
@@ -348,16 +407,22 @@ const CardPage = () => {
         >
           <Button
             variant="contained"
+            onClick={() => {
+              handleButtonClick();
+            }}
             sx={{
               backgroundColor: "white",
               color: "#593E2F",
               fontFamily: "Imprint MT Shadow",
+              marginTop: "-5px", // Ajusta el margen superior para bajar el botón
             }}
           >
             CONFIRMA ASISTENCIA
           </Button>
         </Box>
       </Box>
+
+      {showQR && <QRButton qrValue="hola andy" />}
     </Container>
   );
 };

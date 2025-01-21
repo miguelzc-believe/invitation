@@ -10,6 +10,13 @@
   }
 }
 
+.pixelify-sans-invitation {
+  font-family: "Pixelify Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
 html,
 body {
   max-width: 100vw;
@@ -146,4 +153,18 @@ a {
   100% {
     background-position: 100% 100%;
   }
+}
+
+.miSizeLetter {
+  font-size: "4rem";
+}
+
+.carousel {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.slide {
+  flex: 0 0 100%; /* Cada slide ocupa el 100% del ancho */
+  transition: transform 0.5s ease-in-out;
 }
