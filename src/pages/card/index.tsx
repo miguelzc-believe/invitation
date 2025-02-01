@@ -53,10 +53,9 @@ const CardPage = () => {
         position: "relative",
         width: "100%",
         minHeight: "100vh",
-        backgroundImage: `url('continente.png')`, // Reemplaza con la ruta de tu imagen
+        backgroundColor: "#E0E0E0", // Color de fondo que combina con la paleta de colores
         backgroundSize: "cover",
         backgroundPosition: "center",
-        border: "1px solid BLUE",
         padding: "2rem",
       }}
     >
@@ -65,7 +64,6 @@ const CardPage = () => {
           position: "relative",
           alignItems: "center",
           justifyContent: "center",
-          border: "1px solid red",
           borderRadius: "20px",
           width: "100%",
           height: "100%",
@@ -74,21 +72,36 @@ const CardPage = () => {
       >
         <Box
           id="cabecera"
-          sx={{ backgroundColor: "#CAD1C4", padding: "20px", width: "100%" }}
+          sx={{
+            backgroundColor: "#CAD1C4",
+            padding: "20px",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderBottom: "3px solid #A36548",
+          }}
         >
           <Typography
-            fontSize="12px"
+            fontSize="16px"
             align="center"
-            color="white"
-            sx={{ fontFamily: "Arial Black" }}
+            color="#593E2F"
+            sx={{
+              fontFamily: "Arial Black",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              padding: "10px 0",
+              borderBottom: "2px solid #A36548",
+            }}
           >
-            {" BOARDING PASS|PASE ABORDO     "}
+            Boarding Pass | Pase de Abordo
           </Typography>
         </Box>
+
         <Box
           id="cuerpo"
           sx={{
-            bgcolor: "white",
+            bgcolor: "#F5F5F5", // Cambiado a un tono diferente de blanco
             height: "auto",
             width: "auto",
             borderRadius: "8px",
@@ -108,8 +121,9 @@ const CardPage = () => {
               fontWeight: "bold",
               textTransform: "uppercase",
               color: "#A36548",
-              display: "inline", // Asegura que el texto esté en la misma línea
-              marginLeft: "-10px", // Desplaza el texto hacia la izquierda
+              display: "block", // Asegura que el texto esté en su propia línea
+              textAlign: "center", // Centra el texto
+              margin: "20px 0", // Agrega margen superior e inferior
             }}
           >
             {airlineName}
@@ -387,7 +401,7 @@ const CardPage = () => {
             layout="fixed"
             style={{
               marginTop: "-10px",
-              marginLeft: "-5px",
+              marginLeft: "20px",
               marginRight: "auto",
             }} // Ajusta el margen superior para subir la imagen y centrarla horizontalmente
           />
@@ -411,10 +425,18 @@ const CardPage = () => {
               handleButtonClick();
             }}
             sx={{
-              backgroundColor: "white",
+              backgroundColor: "#ffffff",
               color: "#593E2F",
               fontFamily: "Imprint MT Shadow",
-              marginTop: "-5px", // Ajusta el margen superior para bajar el botón
+              marginTop: "-5px",
+              padding: "8px 20px",
+              borderRadius: "30px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              transition: "background-color 0.3s, transform 0.3s",
+              "&:hover": {
+                backgroundColor: "#f0f0f0",
+                transform: "translateY(-2px)",
+              },
             }}
           >
             CONFIRMA ASISTENCIA

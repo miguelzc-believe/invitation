@@ -67,21 +67,24 @@ const Detalles: React.FC = () => {
           }}
         >
           <Typography
-            variant="h5"
+            variant="h4"
             align="center"
             sx={{
               fontFamily: "Great Vibes, cursive",
-              fontSize: { xs: "30px", sm: "25px", md: "30px" }, // Ajustar tamaño de letra para diferentes pantallas
+              fontSize: { xs: "40px", sm: "36px", md: "40px" },
               fontWeight: "bold",
-              marginTop: { xs: "-2rem", sm: "2rem", md: "3rem" }, // Ajustar margen superior para diferentes pantallas
+              marginTop: { xs: "-1rem", sm: "2rem", md: "3rem" },
               position: "absolute",
-              top: { xs: "10%", sm: "5%", md: "0" }, // Ajustar posición superior para diferentes pantallas
+              top: { xs: "5%", sm: "4%", md: "3%" },
               left: "50%",
               transform: "translateX(-50%)",
-              color: "#8A9A84", // Un verde oscuro
+              color: "#8A9A84",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              maxWidth: "90%",
+              overflowWrap: "break-word",
             }}
           >
-            {" Itinerario "}
+            {"Itinerario"}
           </Typography>
 
           <Timeline
@@ -91,227 +94,62 @@ const Detalles: React.FC = () => {
               left: "50%",
               transform: "translateX(-50%)",
               width: "80%",
-              color: "#8A9A84", // Color del texto
+              color: "#8A9A84",
             }}
           >
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{
-                  color: "#8A9A84",
-                  textAlign: "left",
-                  fontSize: "15px",
-                }}
-              >
-                <Stack direction={"column"}>
-                  10:30
-                  <img
-                    src="anillo.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{
-                  color: "#8A9A84",
-                  textAlign: "Right",
-                  fontSize: "15px",
-                }}
-              >
-                Ceremonia
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  12:00
-                  <img
-                    src="copas.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{
-                  color: "#8A9A84",
-                  textAlign: "Right",
-                  fontSize: "15px",
-                }}
-              >
-                Coctel de bienvenida
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  14:00
-                  <img
-                    src="almuerzo.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{
-                  color: "#8A9A84",
-                  textAlign: "Right",
-                  fontSize: "15px",
-                }}
-              >
-                Almuerzo
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  15:30
-                  <img
-                    src="fotos.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "60px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{ color: "#8A9A84", textAlign: "Right", fontSize: "15px" }}
-              >
-                Fotografias mesa dulce
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  16:30
-                  <img
-                    src="show.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{ color: "#8A9A84", textAlign: "Right", fontSize: "15px" }}
-              >
-                SHOW cooking
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  17:30
-                  <img
-                    src="torta.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-                <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{ color: "#8A9A84", textAlign: "Right", fontSize: "15px" }}
-              >
-                Pastel y Bouquet
-              </TimelineContent>
-            </TimelineItem>
-            <TimelineItem>
-              <TimelineOppositeContent
-                color="text.secondary"
-                sx={{ color: "#8A9A84", textAlign: "left", fontSize: "15px" }}
-              >
-                <Stack direction={"column"}>
-                  18:00
-                  <img
-                    src="auto.png"
-                    alt="Imagen1"
-                    style={{
-                      width: "56px",
-                      height: "50px",
-                      marginTop: "5px",
-                      marginLeft: "-9px",
-                    }}
-                  />
-                </Stack>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
-              </TimelineSeparator>
-              <TimelineContent
-                sx={{ color: "#8A9A84", textAlign: "Right", fontSize: "15px" }}
-              >
-                Despedida
-              </TimelineContent>
-            </TimelineItem>
+            {[
+              { time: "10:30", img: "anillo.png", text: "Ceremonia" },
+              { time: "12:00", img: "copas.png", text: "Coctel de bienvenida" },
+              { time: "14:00", img: "almuerzo.png", text: "Almuerzo" },
+              {
+                time: "15:30",
+                img: "fotos.png",
+                text: "Fotografias mesa dulce",
+              },
+              { time: "16:30", img: "show.png", text: "SHOW cooking" },
+              { time: "17:30", img: "torta.png", text: "Pastel y Bouquet" },
+              { time: "18:00", img: "auto.png", text: "Despedida" },
+            ].map((event, index) => (
+              <TimelineItem key={index}>
+                <TimelineOppositeContent
+                  color="text.secondary"
+                  sx={{
+                    color: "#8A9A84",
+                    textAlign: "left",
+                    fontSize: "15px",
+                  }}
+                >
+                  <Stack direction={"column"}>
+                    {event.time}
+                    <img
+                      src={event.img}
+                      alt={`Imagen${index + 1}`}
+                      style={{
+                        width: "56px",
+                        height: "50px",
+                        marginTop: "5px",
+                        marginLeft: "-9px",
+                      }}
+                    />
+                  </Stack>
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot sx={{ bgcolor: "#8A9A84" }} />
+                  {index < 6 && (
+                    <TimelineConnector sx={{ bgcolor: "#8A9A84" }} />
+                  )}
+                </TimelineSeparator>
+                <TimelineContent
+                  sx={{
+                    color: "#8A9A84",
+                    textAlign: "right",
+                    fontSize: "15px",
+                  }}
+                >
+                  {event.text}
+                </TimelineContent>
+              </TimelineItem>
+            ))}
           </Timeline>
         </Box>
       </Grid2>

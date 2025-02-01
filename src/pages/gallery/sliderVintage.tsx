@@ -4,27 +4,19 @@ import React from "react";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const SliderComponent: React.FC = () => {
+const SliderVintage: React.FC = () => {
   const images = [
     {
-      img: "1.jpg",
-      txt: "Desde el inicio, Dios fue el centro de esta unión. Un momento especial que marcó el comienzo de un hermoso propósito",
+      img: "poli1.jpg",
     },
     {
-      img: "2.jpg",
-      txt: "Una de esas fotos que hablan por sí solas, dejando que el corazón complete la historia",
+      img: "poli2.jpg",
     },
     {
-      img: "3.jpg",
-      txt: "El día que dijimos sí a un futuro juntos, marcado por este pequeño gran símbolo de amor",
+      img: "poli3.jpg",
     },
     {
-      img: "4.jpg",
-      txt: "En la sencillez de un momento, nuestras miradas dijeron todo lo que las palabras no podían",
-    },
-    {
-      img: "5.jpg",
-      txt: "En cada detalle, seguimos construyendo el sueño que pronto será nuestra realidad",
+      img: "poli4.jpg",
     },
   ];
 
@@ -85,31 +77,31 @@ const SliderComponent: React.FC = () => {
             }}
             key={index}
           >
-            <img
+            <div
               style={{
+                position: "relative",
                 width: "100%",
-                maxWidth: "300px",
-                height: "auto",
+                maxWidth: "90%", // Increased maxWidth to make images larger but not exceed container
                 margin: "0 auto",
                 borderRadius: "20px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
-              src={i.img}
-              alt={`${index + 1}`}
-            />
-            <h6
-              style={{
-                color: "#4a5a3f",
-                fontSize: "1rem",
-                fontFamily: "Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: "normal",
-                marginTop: "1rem",
-                lineHeight: "1.5",
+                backgroundColor: "white",
+                paddingBottom: "15%", // Adjusted padding to maintain aspect ratio
+                paddingTop: "5%",
+                paddingLeft: "5%",
+                paddingRight: "5%",
               }}
             >
-              {i.txt}
-            </h6>
+              <img
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  borderRadius: "0px",
+                }}
+                src={i.img}
+                alt={`${index + 1}`}
+              />
+            </div>
           </Grid2>
         ))}
       </Slider>
@@ -117,4 +109,4 @@ const SliderComponent: React.FC = () => {
   );
 };
 
-export default SliderComponent;
+export default SliderVintage;

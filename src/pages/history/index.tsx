@@ -58,37 +58,52 @@ const history: React.FC = () => {
         >
           <Grid2>
             <Typography
-              variant="h5"
+              variant="h4"
               align="center"
               sx={{
                 fontFamily: "Great Vibes, cursive",
-                fontSize: { xs: "40px", sm: "10px", md: "10px" },
-                fontWeight: "bold",
-                transform: "translateX(-1%)",
-                color: "#9A848A",
+                fontSize: { xs: "40px", sm: "35px", md: "40px" },
+                fontWeight: "normal",
+                marginTop: { xs: "-4rem", sm: "2rem", md: "3rem" },
+                position: "absolute",
+                top: { xs: "10%", sm: "5%", md: "0" },
+                left: "50%",
+                transform: "translateX(-50%)",
+                color: "#8A9A84",
+                fontStyle: "italic",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+                letterSpacing: "0,9rem",
               }}
             >
-              {" Nuestra Historia  "}
+              {" Nuestra Historia "}
             </Typography>
           </Grid2>
           <Grid2
             sx={{
-              width: "70px",
-              height: "70px",
+              width: "50px",
+              height: "50px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "7rem", // Adjust this value to move the heart down
+              position: "absolute",
+              zIndex: 10, // Ensure it is in front of other elements
             }}
           >
             <img
               src="corazon.png"
               alt="Nuestra Historia"
               style={{
-                width: "70px",
-                height: "70px",
+                width: "60px",
+                height: "60px",
               }}
             />
           </Grid2>
           <Grid2
             sx={{
               bgcolor: "#F5F3E7",
+              padding: "1rem",
+              marginTop: "7rem",
             }}
           >
             <SliderComponent />
