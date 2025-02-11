@@ -9,6 +9,7 @@ import GalleryComponent from "../components/GalleryComponent";
 import HistoryComponent from "../components/HistoryComponent";
 import InstagramComponent from "../components/InstagramComponent";
 import LocationComponent from "../components/LocationComponent";
+import MusicPlayer from "../components/MusicPlayer";
 
 const HomePage = () => {
   const [sectionActive, setSectionActive] = useState<string>("video-section");
@@ -78,6 +79,7 @@ const HomePage = () => {
       <Section id="gallery-section">
         <GalleryComponent slideActive={sectionActive === "gallery-section"} />
       </Section>
+      <MusicPlayer />
     </Container>
   );
 };

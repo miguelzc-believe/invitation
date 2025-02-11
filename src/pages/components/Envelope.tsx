@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"; // Importamos el hook para manejar el estado global
+import { useGlobalState } from "./GlobalState";
 
 const EnvelopePage = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const { setIsPlaying } = useGlobalState(); // Obtenemos la función para actualizar el estado global
 
   const handleOpen = () => {
     setIsOpen(true);
+    setIsPlaying(true); // Cambiamos el estado global para iniciar la canción
     setTimeout(() => {
       router.push("/home");
     }, 2500);

@@ -6,12 +6,16 @@ import theme from "./theme";
 import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MusicPlayer from "./components/MusicPlayer";
+import { GlobalStateProvider } from "./components/GlobalState";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Component {...pageProps} />
+      <GlobalStateProvider>
+        <Component {...pageProps} />
+      </GlobalStateProvider>
     </ThemeProvider>
   );
 };
