@@ -1,54 +1,36 @@
-import { motion, useInView } from "framer-motion";
-import { Box, Typography } from "@mui/material";
-import { FC, useRef } from "react";
-import EnvelopePage from "./envelope/Envelope";
+import { forwardRef } from "react";
+import { Box } from "@mui/material";
+
+import { motion } from "framer-motion";
 
 interface SectionProps {
   id: string;
-  title: string;
-  content: string;
-  bgColor: string;
-  direction?: "left" | "right";
+  children: React.ReactNode;
 }
 
-const Section: FC<SectionProps> = ({
-  id,
-  title,
-  content,
-  bgColor,
-  direction = "left",
-}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Animación se repite
-
-  const variants = {
-    hidden: { opacity: 0, x: direction === "left" ? -100 : 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  return (
-    <Box
-      component={motion.section}
-      ref={ref}
-      id={id}
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "2rem",
-        textAlign: "center",
-        backgroundColor: bgColor,
-      }}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"} // Control manual con isInView
-      viewport={{ margin: "100px" }} // Margen para reiniciar la detección
-      variants={variants}
-    >
-      <EnvelopePage />
-    </Box>
-  );
-};
+// Usamos forwardRef para que Section acepte tanto callback refs como ref objects
+const Section = forwardRef<HTMLElement, SectionProps>(
+  ({ id, children }: SectionProps, ref) => {
+    return (
+      <Box
+        component={motion.section}
+        ref={ref}
+        id={id}
+        sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          justifySelf: "center",
+          margin: "0px",
+          paddingX: "0px",
+        }}
+      >
+        {children}
+      </Box>
+    );
+  }
+);
 
 export default Section;

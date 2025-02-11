@@ -1,20 +1,27 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FC } from "react";
-import Section from "./components/Section";
-import EnvelopePage from "./components/envelope/Envelope";
+import EnvelopePage from "./components/Envelope";
+import { Box } from "@mui/material";
 
 const Home: FC = () => {
   return (
-    <>
-      <Section
-        id={"envelope"}
-        bgColor="red"
-        direction="left"
-        key={"envelope"}
-        content="s"
-        title="11"
-      />
-    </>
+    <Box
+      sx={{
+        width: {
+          xs: "100%",
+          md: "80%",
+          lg: "60%",
+        },
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        justifySelf: "center",
+        margin: "0px",
+        padding: "0px",
+      }}
+    >
+      <EnvelopePage />
+    </Box>
   );
 };
 
