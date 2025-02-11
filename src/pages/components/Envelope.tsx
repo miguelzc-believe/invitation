@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router"; // Importamos el hook para manejar el estado global
-import { useGlobalState } from "./GlobalState";
+import { useGlobalState } from "../context/GlobalState";
 
 const EnvelopePage = () => {
   const router = useRouter();

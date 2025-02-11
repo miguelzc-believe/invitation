@@ -7,7 +7,7 @@ interface GlobalState {
 
 const GlobalStateContext = createContext<GlobalState | undefined>(undefined);
 
-export const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
+const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -17,10 +17,13 @@ export const GlobalStateProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useGlobalState = (): GlobalState => {
+const useGlobalState = (): GlobalState => {
   const context = useContext(GlobalStateContext);
   if (context === undefined) {
     throw new Error("useGlobalState must be used within a GlobalStateProvider");
   }
   return context;
 };
+
+export default GlobalStateProvider;
+export { useGlobalState };

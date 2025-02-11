@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { IconButton } from "@mui/material";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
-import { useGlobalState } from "./GlobalState";
+import { useGlobalState } from "../context/GlobalState";
 
 const MusicPlayer: FC = () => {
   const { isPlaying, setIsPlaying } = useGlobalState();

@@ -34,46 +34,48 @@ const SliderVintage: React.FC<SliderVintageProps> = ({ images }) => {
       }}
     >
       <Slider {...settings} className="csSliderVintage">
-        {images.map((i, index) => (
-          <Grid2
-            container
-            justifyContent={"center"}
-            alignItems={"center"}
-            sx={{
-              textAlign: "center",
-              padding: "0rem",
-              margin: "0rem",
-            }}
-            key={index}
-          >
-            <img
-              style={{
-                width: "100%",
-                height: "400px",
-                borderRadius: "0px",
-                objectFit: "cover",
-                objectPosition: "center",
-                margin: "0rem",
+        {images &&
+          images.length > 0 &&
+          images.map((i, index) => (
+            <Grid2
+              container
+              justifyContent={"center"}
+              alignItems={"center"}
+              sx={{
+                textAlign: "center",
                 padding: "0rem",
+                margin: "0rem",
               }}
-              src={i.img}
-              alt={`${index + 1}`}
-            />
-            <h6
-              style={{
-                color: "#4a5a3f",
-                fontSize: "1rem",
-                fontFamily: "Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: "normal",
-                marginTop: "1rem",
-                lineHeight: "1.5",
-              }}
+              key={index}
             >
-              {i.text}
-            </h6>
-          </Grid2>
-        ))}
+              <img
+                style={{
+                  width: "100%",
+                  height: "400px",
+                  borderRadius: "0px",
+                  objectFit: "cover",
+                  objectPosition: "center",
+                  margin: "0rem",
+                  padding: "0rem",
+                }}
+                src={i.img}
+                alt={`${index + 1}`}
+              />
+              <h6
+                style={{
+                  color: "#4a5a3f",
+                  fontSize: "1rem",
+                  fontFamily: "Georgia, serif",
+                  fontStyle: "italic",
+                  fontWeight: "normal",
+                  marginTop: "1rem",
+                  lineHeight: "1.5",
+                }}
+              >
+                {i.text}
+              </h6>
+            </Grid2>
+          ))}
       </Slider>
     </Grid2>
   );
