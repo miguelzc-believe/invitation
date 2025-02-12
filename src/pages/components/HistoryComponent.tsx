@@ -90,9 +90,8 @@ const HistoryComponent: FC<HistoryComponentProps> = ({
             >
               {" Nuestra Historia "}
             </Typography>
-            <div className={slideActive ? "csView" : ""}>
-              <SliderVintage images={images} />
-            </div>
+
+            <SliderVintage images={images} />
           </Box>
         </Grid2>
       </CardContent>

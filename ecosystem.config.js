@@ -32,7 +32,7 @@ module.exports = {
       cwd: "/home/ubuntu/projects/personal/invitation", // Ruta absoluta recomendada
       env: {
         NODE_ENV: "production",
-        NEXT_PUBLIC_BASE_URL: "https://invitation.miguel-zapata.xyz", // Variables necesarias
+        NEXT_PUBLIC_BASE_URL: "https://boda.dimelza-y-alan.invita-party.com/", // Variables necesarias
       },
     },
   ],

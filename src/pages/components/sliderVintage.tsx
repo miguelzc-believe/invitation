@@ -17,7 +17,7 @@ const SliderVintage: React.FC<SliderVintageProps> = ({ images }) => {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 8000,
     autoplay: true,
     fade: true,
     arrows: true,
