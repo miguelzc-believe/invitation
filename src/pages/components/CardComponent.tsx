@@ -7,10 +7,13 @@ import {
   CardContent,
   CardHeader,
   Collapse,
+  Modal,
   Typography,
+  TextField,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import QRButton from "./qr";
 
 interface CardComponentProps {
   slideActive: boolean;
@@ -18,11 +21,10 @@ interface CardComponentProps {
 export default function CardComponent({
   slideActive = true,
 }: CardComponentProps) {
-  const [expanded, setExpanded] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [openToast, setOpenToast] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
   const eventDate = new Date("2025-03-22T00:00:00");
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -56,6 +58,30 @@ export default function CardComponent({
     return () => clearInterval(interval);
   }, [eventDate]);
   const airlineName = "DIMELZA & ALAN";
+
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => {
+    setFullName("");
+    setOpenModal(false);
+  };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFullName(event.target.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const message = encodeURIComponent(`Confirmo mi asistencia: ${fullName}`);
+    const urlBase = `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`;
+    const whatsappUrl = `${urlBase}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
+    setOpenToast(true);
+    handleClose();
+  };
+
+  const handleCloseToast = () => {
+    setOpenToast(false);
+  };
+
   return (
     <Card
       sx={{
@@ -368,24 +394,96 @@ export default function CardComponent({
       >
         <Button
           variant="contained"
-          onClick={handleExpandClick}
+          onClick={handleOpen}
           sx={{
             backgroundColor: "#ffffff",
             color: "#593E2F",
             fontFamily: "Imprint MT Shadow",
-
             borderRadius: "30px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
-          {expanded ? "CERRAR" : "CONFIRMA ASISTENCIA"}
+          CONFIRMA ASISTENCIA
         </Button>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <QRButton qrValue="Gracias por asistir!" />
-        </CardContent>
-      </Collapse>
+      <Modal
+        open={openModal}
+        onClose={handleClose}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "white",
+            padding: "2rem",
+            borderRadius: "8px",
+            width: "400px",
+            outline: "none",
+          }}
+        >
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{ color: "#593E2F", mb: 2 }}
+          >
+            Confirmar Asistencia
+          </Typography>
+
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              label="Nombre Completo"
+              variant="outlined"
+              required
+              value={fullName}
+              onChange={handleInputChange}
+              sx={{ mb: 3 }}
+            />
+
+            <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+              <Button
+                variant="outlined"
+                onClick={handleClose}
+                sx={{ color: "#593E2F", borderColor: "#593E2F" }}
+              >
+                Cancelar
+              </Button>
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{
+                  backgroundColor: "#CAD1C4",
+                  "&:hover": { backgroundColor: "#CAD1C4" },
+                }}
+              >
+                Confirmar
+              </Button>
+            </Box>
+          </form>
+        </Box>
+      </Modal>
+      <Snackbar
+        open={openToast}
+        autoHideDuration={6000}
+        onClose={handleCloseToast}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleCloseToast}
+          severity="success"
+          sx={{
+            width: "100%",
+            backgroundColor: "#CAD1C4",
+            color: "#593E2F",
+            boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          ¡Gracias por confirmar tu asistencia!
+        </Alert>
+      </Snackbar>
     </Card>
   );
 }

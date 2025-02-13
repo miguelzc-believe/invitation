@@ -2,9 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  productionBrowserSourceMaps: false, // Mejor rendimiento
+  productionBrowserSourceMaps: false,
   optimizeFonts: true,
-  compress: true,
 };
 
 export default nextConfig;
