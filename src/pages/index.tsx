@@ -1,7 +1,6 @@
 import { FC, useEffect } from "react";
 import EnvelopePage from "./components/Envelope";
 import { Box } from "@mui/material";
-import MusicPlayer from "./components/MusicPlayer";
 
 const Home: FC = () => {
   return (

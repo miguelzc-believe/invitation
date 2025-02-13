@@ -76,7 +76,9 @@ const InstagramComponent: FC<InstagramComponentProps> = ({
                 width: "100%",
                 maxHeight: "200px",
               }}
-              className={slideActive ? "csView" : ""}
+              className={
+                slideActive ? "csView cslatirInstagram" : "cslatirInstagram"
+              }
             >
               <Image
                 src="/camarita.png"

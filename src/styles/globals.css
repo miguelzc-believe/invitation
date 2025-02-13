@@ -215,6 +215,10 @@ a {
   /* Cambia el cursor a mano al pasar por encima */
 }
 
+.cslatirInstagram {
+  animation: latir 1.5s ease-in-out infinite;
+}
+
 .csvideo {
   position: "absolute";
   top: 0;
