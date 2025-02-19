@@ -88,6 +88,7 @@ const InstagramComponent: FC<InstagramComponentProps> = ({
                 style={{
                   objectFit: "cover",
                 }}
+                loading="lazy"
               />
             </Box>
 

@@ -91,6 +91,7 @@ const EnvelopePage = () => {
           alt="Button Image"
           width={250}
           height={250}
+          loading="lazy"
         />
       </a>
     </>

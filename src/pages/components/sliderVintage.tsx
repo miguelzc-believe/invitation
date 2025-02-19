@@ -3,6 +3,7 @@ import React from "react";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 export interface ImageProps {
   img: string;
@@ -48,18 +49,21 @@ const SliderVintage: React.FC<SliderVintageProps> = ({ images }) => {
               }}
               key={index}
             >
-              <img
+              <Image
                 style={{
                   width: "100%",
-                  height: "400px",
+                  height: "600px",
                   borderRadius: "0px",
                   objectFit: "cover",
                   objectPosition: "center",
                   margin: "0rem",
                   padding: "0rem",
                 }}
+                width={400}
+                height={600}
                 src={i.img}
                 alt={`${index + 1}`}
+                loading="lazy"
               />
               <h6
                 style={{

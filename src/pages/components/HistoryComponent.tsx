@@ -12,23 +12,23 @@ const HistoryComponent: FC<HistoryComponentProps> = ({
 }: HistoryComponentProps) => {
   const images: ImageProps[] = [
     {
-      img: "1.jpg",
+      img: "/1.jpg",
       text: "Desde el inicio, Dios fue el centro de esta unión. Un momento especial que marcó el comienzo de un hermoso propósito",
     },
     {
-      img: "2.jpg",
+      img: "/2.jpg",
       text: "Una de esas fotos que hablan por sí solas, dejando que el corazón complete la historia",
     },
     {
-      img: "3.jpg",
+      img: "/3.jpg",
       text: "El día que dijimos sí a un futuro juntos, marcado por este pequeño gran símbolo de amor",
     },
     {
-      img: "4.jpg",
+      img: "/4.jpg",
       text: "En la sencillez de un momento, nuestras miradas dijeron todo lo que las palabras no podían",
     },
     {
-      img: "5.jpg",
+      img: "/5.jpg",
       text: "En cada detalle, seguimos construyendo el sueño que pronto será nuestra realidad",
     },
   ];

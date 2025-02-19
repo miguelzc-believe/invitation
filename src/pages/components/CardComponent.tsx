@@ -381,6 +381,7 @@ export default function CardComponent({
             style={{
               objectFit: "fill",
             }}
+            loading="lazy"
           />
         </Box>
       </Box>

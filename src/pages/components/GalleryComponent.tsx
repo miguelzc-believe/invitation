@@ -12,19 +12,39 @@ const GalleryComponent: FC<GalleryComponentProps> = ({
 }: GalleryComponentProps) => {
   const images: ImageProps[] = [
     {
-      img: "poli1.jpg",
+      img: "/gallery/poli1.jpg",
       text: "",
     },
     {
-      img: "poli2.jpg",
+      img: "/gallery/poli3.jpg",
       text: "",
     },
     {
-      img: "poli3.jpg",
+      img: "/gallery/poli4.jpg",
       text: "",
     },
     {
-      img: "poli4.jpg",
+      img: "/gallery/gallery1.jpeg",
+      text: "",
+    },
+    {
+      img: "/gallery/gallery2.jpeg",
+      text: "",
+    },
+    {
+      img: "/gallery/gallery3.jpeg",
+      text: "",
+    },
+    {
+      img: "/gallery/gallery4.jpeg",
+      text: "",
+    },
+    {
+      img: "/gallery/gallery5.jpeg",
+      text: "",
+    },
+    {
+      img: "/gallery/gallery6.jpeg",
       text: "",
     },
   ];

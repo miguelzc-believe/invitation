@@ -70,9 +70,7 @@ const LocationComponent: FC<LocationComponentProps> = ({
               alt="Centered Image"
               width={100}
               height={100}
-              /*  style={{
-                filter: "sepia(1) saturate(20000%) hue-rotate(300deg)", // Apply filter to change color tone
-              }} */
+              loading="lazy"
             />
             <Typography
               variant="h4"
@@ -96,6 +94,7 @@ const LocationComponent: FC<LocationComponentProps> = ({
               style={{
                 padding: "1rem 0px",
               }}
+              loading="lazy"
             />
 
             <Button
