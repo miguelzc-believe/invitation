@@ -10,7 +10,7 @@ module.exports = {
       env: {
         NODE_ENV: "production",
         NEXT_PUBLIC_BASE_URL: "https://boda.dimelza-y-alan.invita-party.com/", // Variables necesarias
-        NEXT_PUBLIC_PHONE_NUMBER: "+59160365521",
+        NEXT_PUBLIC_PHONE_NUMBER: "+59163886955",
       },
     },
   ],
